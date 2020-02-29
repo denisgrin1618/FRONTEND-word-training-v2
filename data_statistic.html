@@ -1,0 +1,513 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+	    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+	
+	 <style media="all">
+        table {
+			table-layout: fixed;
+			width: 100%;
+		}
+
+		table tr td {
+			word-break: break-all;
+		}
+		
+		.vcenter {
+			display: inline-block;
+			vertical-align: middle;
+			float: none;
+		}
+		
+		
+      </style>
+	
+	
+	
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.textareaAutoResize.js"></script>
+	
+    <title>Statistic</title>
+  </head>
+  <!-- <body  style="    background: #eef2f4 url(./images/pattern-light-grey-v3.svg?v6) 0 0 repeat;" > -->
+  
+  <body  style="    background: #FFFAFA url(./images/pattern-light-grey-v3.svg?v6) 0 0 repeat;" >
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light " style="border-bottom: 1px solid black; background-color: #D3D3D3;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="./index.html"><img src="./images/logo_sm.png" ></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Словарь</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="./data_statistic.html">Статистика</a>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Редактор
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="./data_import.html">Загрузка слов</a>
+          <a class="dropdown-item" href="./data_edit.html">Редактирование слов</a>
+          <a class="dropdown-item" href="#">Создание тестов</a>
+        </div>
+      </li>
+    </ul>
+
+	
+	
+	
+  </div>
+  
+  <a class="nav-link" href="./autorization.html">Sign up</a>
+</nav>
+   
+   <main role="main" class="container" >
+
+   <br/>
+
+   <div class="row justify-content-md-center">
+   
+   
+		<table class="table table-striped">
+		  <thead>
+			<tr>
+			  <th style="width: 5%" scope="col">#</th>
+			  <th style="width: 5%" scope="col"></th>
+			  <th style="width: 30%" scope="col">Слово</th>
+			  <th style="width: 20%" scope="col">Кол-во правильных ответов</th>
+			  <th style="width: 20%" scope="col">Кол-во ошибок</th>
+			  <th style="width: 20%" scope="col">Всего ответов</th>
+			</tr>
+		  </thead>
+		  
+		  <tbody>
+			<tr class="table-primary">
+			  <th scope="row" ></th>
+				<td></td>
+								
+				<td>
+						 <form >
+						 <input class="form-control" type="text" placeholder="search">
+						 <!--
+						  <div class="form-row">
+							<div class="col-9">
+							  <input class="form-control" type="text" placeholder="search"> 
+							</div>
+							
+				
+							
+							<div class="col-3 align-middle" >
+								<p class="text-center" align="justify">
+									<a href='#'><img src="images/sort_ascending_24.png"></a>
+									<a href='#'><img src="images/sort_descent_24.png"></a>
+								</p>
+							</div>
+						  </div>
+						 
+						  -->
+						</form>
+
+					</td>				
+				<td>
+					<input class="form-control" type="text" placeholder="search">
+				</td>
+				<td>
+					<input class="form-control" type="text" placeholder="search">
+				</td>
+				<td>
+					<input class="form-control" type="text" placeholder="search">
+			  </td>
+			</tr>
+			<tr class="table-primary">			
+				<td colspan="2" >  <!-- style="vertical-align: bottom" -->
+					
+				</td>
+				<td colspan="4">				
+					<form width="100%">
+						<div class="form-row" >
+							<div class="form-group col-md-6 vcenter">
+								<!-- <button id="butTest" type="button" class="btn btn-primary">Создать тест</button>  -->
+							</div>
+							<div class="form-group col-md-4">
+								<label for="inputNameCol">Имя колонки</label>
+							  <select id="inputNameCol" class="form-control">
+								<option selected>Слово</option>
+								<option>Кол-во правильных ответов</option>
+								<option>Кол-во ошибок</option>
+								<option>Всего ответов</option>
+							  </select>
+							</div>
+							<div class="form-group col-md-2">
+								<label for="inputState">Сортировка</label>
+							  <select id="inputState" class="form-control">
+								<option selected>Возвростание</option>
+								<option>Убывание</option>
+							  </select>
+							</div>
+						  </div>
+					</form>
+				</td>
+			</tr>
+			
+
+			<tr >
+			  <th scope="row" >1</th>
+			  <td> <input class="check_word" type="checkbox" > </td>
+			  <td class="td_word">box</td>
+			  <td>10</td>
+			  <td>5</td>
+			  <td>15</td>
+			</tr>
+			
+			<tr >
+			  <th scope="row" >2</th>
+			  <td> <input class="check_word" type="checkbox" > </td>
+			  <td class="td_word">red</td>
+			  <td>0</td>
+			  <td>5</td>
+			  <td>5</td>
+			</tr>
+			
+			<tr >
+			  <th scope="row" >1</th>
+			  <td> <input type="checkbox" class="check_word"> </td>
+			  <td class="td_word">box</td>
+			  <td>10</td>
+			  <td>5</td>
+			  <td>15</td>
+			</tr>
+			
+			<tr >
+			  <th scope="row" >1</th>
+			  <td> <input class="check_word" type="checkbox" > </td>
+			  <td class="td_word">pen</td>
+			  <td>10</td>
+			  <td>5</td>
+			  <td>15</td>
+			</tr>
+			<tr >
+			  <th scope="row" >1</th>
+			  <td> <input class="check_word" type="checkbox" > </td>
+			  <td class="td_word">pen</td>
+			  <td>10</td>
+			  <td>5</td>
+			  <td>15</td>
+			</tr>
+			<tr >
+			  <th scope="row" >1</th>
+			  <td> <input class="check_word" type="checkbox" > </td>
+			  <td class="td_word">box</td>
+			  <td>10</td>
+			  <td>5</td>
+			  <td>15</td>
+			</tr>
+			
+			<tr >
+			  <th scope="row" >1</th>
+			  <td> <input class="check_word" type="checkbox" > </td>
+			  <td class="td_word">box</td>
+			  <td>10</td>
+			  <td>5</td>
+			  <td>15</td>
+			</tr>
+			
+			<tr>
+				<td colspan="4"  align="left" >
+					<p id="text_selected_words">Выбрано 0 слов</p>
+				</td>
+				<td colspan="2"  align="right" >
+					<button type="button" class="btn btn-primary  ml-1 mt-1 butTest" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Создать тест</button>
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination">
+			<li class="page-item">
+			  <a class="page-link" href="#" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+				<span class="sr-only">Previous</span>
+			  </a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">...</a></li>
+			<li class="page-item"><a class="page-link" href="#">133</a></li>
+			<li class="page-item">
+			  <a class="page-link" href="#" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+				<span class="sr-only">Next</span>
+			  </a>
+			</li>
+		  </ul>
+		</nav>
+		
+		
+	
+	</div>
+		
+		
+	
+
+
+	
+
+	</main>
+    
+	
+	
+	
+	
+	
+	<div class="bd-example">
+
+
+	  
+	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<!--
+			<div class="modal-header">
+			  
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			 
+			  <h4 class="modal-title" id="exampleModalLabel">Создание нового теста</h4>
+			</div>
+			 -->
+			<div class="modal-body">
+			  <form>
+				<div class="form-group">
+				  <input class="form-control" id="recipient-name" placeholder="Название теста...">
+				</div>
+				<div class="form-group table-wrapper-scroll-y " id="div_table_selected_words" style="overflow:auto;">
+				
+				
+				
+					<table class="table table-hover table-striped" id="table_selected_words" >  <!-- style="overflow:auto; height:200px;" -->
+					<!--
+					<thead>
+						<tr>
+						  <th style="width: 5%" scope="col">#</th>
+						  <th style="width: 95%" scope="col">Слово</th>
+						</tr>
+					  </thead>  style="width: 5%"
+					  -->
+					 
+						<tr>
+							<td style="width: 5%"><input class="check_word" type="checkbox" checked></td>
+							<td style="width: 95%" class="td_word">boxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxboxbox</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+						<tr>
+							<td><input class="check_word" type="checkbox" checked></td>
+							<td class="td_word">box</td>
+						</tr>
+					  
+					</table>
+				
+				
+				
+				
+				  
+				</div>
+			  </form>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-success" data-dismiss="modal" id="ModalButSave">Создать</button>
+			  <!-- 
+			  <button type="button" class="btn btn-primary">Send message</button>
+			  -->
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+
+	<script type="text/javascript">
+	
+	var Curent_table_tr;
+	var selected_words = [];
+	
+	// Удаление элемента из массива.
+	// String value: значение, которое необходимо найти и удалить.
+	// return: массив без удаленного элемента; false в противном случае.
+	Array.prototype.remove = function(value) {
+		var idx = this.indexOf(value);
+		if (idx != -1) {
+			// Второй параметр - число элементов, которые необходимо удалить
+			return this.splice(idx, 1);
+		}
+		return false;
+	}
+
+	$(function(){
+	
+		
+			$('#exampleModal').on('show.bs.modal', function (event) {
+			 			  
+			});
+			
+			$('#exampleModal').on('shown.bs.modal', function (event) {
+			  
+			});
+			
+			$('#ModalButSave').on( "click", function() {
+				var WordOrigin    = $('#exampleModal').find('#recipient-name').val();
+				var WordTranslate = $('#exampleModal').find('#message-text').val();
+				
+				Curent_table_tr.find('.tdWordOrigin').text(WordOrigin);
+				Curent_table_tr.find('.tdWordTranslate').text(WordTranslate);
+				
+				//console.log( '#ModalButSave  click' );
+				//console.log( Curent_tdWordTranslate );
+				
+				Curent_table_tr.addClass("table-success");
+		
+			});
+			
+			
+			$(".check_word").change(function() {
+				var word = $(this).parent().siblings('.td_word').text();
+				//console.log(word);
+				if(this.checked) {
+					selected_words.push(word);
+				}else{
+					selected_words.remove(word);
+				}
+				
+				$('#text_selected_words').text("Выбрано "+ selected_words.length + " слов");
+			});
+			
+			$('.butTest').on( "click", function() {
+				//console.log(selected_words);
+
+				var tab = $('#table_selected_words');
+				tab.empty();
+				
+				$.each(selected_words, function(index,value){
+				  //console.log('Индекс: ' + index.toString() + '; Значение: ' + value.toString());
+					tab.append('<tr><td><input class="check_word" type="checkbox" checked></td><td class="td_word">' + value + '</td></tr>');
+				});
+				
+			});
+
+	});
+
+	function ResizeElements(){
+		//var width = $('.input-group-text').parent().parent().width();
+		//var height = $('.input-group-text').parent().parent().height();
+		//$('.input-group-text').css('width', width/2);
+		//$('.input-group-text').css('height', height < 100 ? 100 : height );
+		
+		
+		var height = $(window).height() * 0.6;
+		$('#div_table_selected_words').css('height', height);
+	}
+	
+	
+	$(window).resize(function(){
+		ResizeElements();
+	});
+
+	ResizeElements();
+	
+	//$(".bt_edit").click(function(){
+	//
+	//	$text = $(this).text();
+	//	if($text == 'Edit'){
+	//		$(this).removeClass("btn-primary");
+	//		$(this).addClass("btn-success");
+	//		$(this).text("Save");
+	//	}else{
+	//		$(this).removeClass("btn-success");
+	//		$(this).addClass("btn-primary");
+	//		$(this).text("Edit");
+	//	}
+//
+	//});
+	
+
+	
+	</script>
+	
+	<!-- 
+	Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	
+	<!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	-->
+  </body>
+</html>

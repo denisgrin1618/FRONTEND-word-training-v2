@@ -1,0 +1,282 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+	    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+	
+	 <style media="all">
+        table {
+			table-layout: fixed;
+			width: 100%;
+		}
+
+		table tr td {
+			word-break: break-all;
+		}
+      </style>
+	
+	
+	
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.textareaAutoResize.js"></script>
+	
+    <title>Hello, world!</title>
+  </head>
+  <!-- <body  style="    background: #eef2f4 url(./images/pattern-light-grey-v3.svg?v6) 0 0 repeat;" > -->
+  
+  <body  style="    background: #FFFAFA url(./images/pattern-light-grey-v3.svg?v6) 0 0 repeat;" >
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light " style="border-bottom: 1px solid black; background-color: #D3D3D3;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#"><img src="./images/logo_sm.png" ></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Словарь</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Статистика</a>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Редактор
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Загрузка слов</a>
+          <a class="dropdown-item" href="#">Редактирование слов</a>
+          <a class="dropdown-item" href="#">Создание тестов</a>
+        </div>
+      </li>
+    </ul>
+
+	
+	
+	
+  </div>
+  
+  <a class="nav-link" href="#">Sign up</a>
+</nav>
+   
+   <main role="main" class="container" >
+
+   <br/>
+
+   <div class="row justify-content-md-center">
+   
+		<table class="table table-striped">
+		  <thead>
+			<tr>
+			  <th style="width: 10%" scope="col">#</th>
+			  <th style="width: 90%" scope="col">ИмяСловаря</th>
+			  <th style="width: 20%" scope="col"></th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row" >1</th>
+			  <td >Английский-русский</td>
+			  <td  class="tdWordOrigin">box</td>
+			  <td  class="tdWordTranslate" >коробка</td>
+			  <td  align="right">
+					<button type="button" class="btn btn-primary  ml-1 mt-1 bt_edit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
+			  </td>
+			</tr>
+			
+			<tr>
+			  <th scope="row">2</th>
+			  <td>Английский-русский</td>
+			  <td class="tdWordOrigin">Welcome to the Grammar Gameshow! Test your knowledge in this crazy quiz! The presenter is a bit strange, the points don't make sense and the prizes could use some improvement, but at least the grammar is correct!</td>
+			  <td class="tdWordTranslate">Добро пожаловать в Grammar Gameshow! Проверьте свои знания в этой сумасшедшей викторине! Ведущий немного странный, точки не имеют смысла, и призы могут использовать некоторое улучшение, но, по крайней мере, грамматика правильная!</td>
+			  <td align="right">
+					<button  type="button" class="btn btn-primary  ml-1 mt-1 bt_edit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
+			  </td>
+			</tr>
+			
+		  </tbody>
+		</table>
+
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination">
+			<li class="page-item">
+			  <a class="page-link" href="#" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+				<span class="sr-only">Previous</span>
+			  </a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">...</a></li>
+			<li class="page-item"><a class="page-link" href="#">133</a></li>
+			<li class="page-item">
+			  <a class="page-link" href="#" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+				<span class="sr-only">Next</span>
+			  </a>
+			</li>
+		  </ul>
+		</nav>
+	</div>
+		
+		
+	
+
+
+	
+
+	</main>
+    
+	
+	
+	
+	<div class="bd-example">
+	  <!-- 
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+	  -->
+
+	  
+	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <!--
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			  -->
+			  <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+			</div>
+			<div class="modal-body">
+			  <form>
+				<div class="form-group">
+				  <label for="recipient-name" class="form-control-label">Слово:</label>
+				  <textarea class="form-control" id="recipient-name"></textarea>
+				</div>
+				<div class="form-group">
+				  <label for="message-text" class="form-control-label">Перевод:</label>
+				  <textarea class="form-control" id="message-text"></textarea>
+				</div>
+			  </form>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-success" data-dismiss="modal" id="ModalButSave">Сохранить</button>
+			  <!-- 
+			  <button type="button" class="btn btn-primary">Send message</button>
+			  -->
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+
+	<script type="text/javascript">
+	
+	var Curent_table_tr;
+	
+	$(function(){
+	
+		
+			$('#exampleModal').on('show.bs.modal', function (event) {
+			  var modal 	= $(this);
+			  var button 	= $(event.relatedTarget) // Кнопка, что спровоцировало модальное окно  
+			  
+			  Curent_table_tr		 = button.parent().parent();
+			  var word1 = Curent_table_tr.find('.tdWordOrigin').text();
+			  var word2 = Curent_table_tr.find('.tdWordTranslate').text();
+			  
+			  modal.find('#recipient-name').val(word1).autoResize();
+			  modal.find('#message-text').val(word2).autoResize();
+			  		  
+			  // Если необходимо, вы могли бы начать здесь AJAX-запрос (и выполните обновление в обратного вызова).  
+			  // Обновление модальное окно Контента. Мы будем использовать jQuery здесь, но вместо него можно использовать привязки данных библиотеки или других методов.  
+
+			  //var recipient = button.data('whatever') // Извлечение информации из данных-* атрибутов  
+			  //modal.find('.modal-title').text('New message to ' + recipient)
+
+			  var number = button.parent().siblings('th').text();
+			  modal.find('.modal-title').text('Строка ' + number);
+			  
+			});
+			
+			$('#exampleModal').on('shown.bs.modal', function (event) {
+			  var modal = $(this);
+			  modal.find('#recipient-name').autoResize();
+			  modal.find('#message-text').autoResize();
+			});
+			
+			$('#ModalButSave').on( "click", function() {
+				var WordOrigin    = $('#exampleModal').find('#recipient-name').val();
+				var WordTranslate = $('#exampleModal').find('#message-text').val();
+				
+				Curent_table_tr.find('.tdWordOrigin').text(WordOrigin);
+				Curent_table_tr.find('.tdWordTranslate').text(WordTranslate);
+				
+				//console.log( '#ModalButSave  click' );
+				//console.log( Curent_tdWordTranslate );
+				
+				Curent_table_tr.addClass("table-success");
+		
+			});
+			
+			
+	});
+
+	function ResizeElements(){
+		var width = $('.input-group-text').parent().parent().width();
+		var height = $('.input-group-text').parent().parent().height();
+		$('.input-group-text').css('width', width/2);
+		$('.input-group-text').css('height', height < 100 ? 100 : height );
+	}
+	
+	
+	$(window).resize(function(){
+		ResizeElements();
+	});
+
+	ResizeElements();
+	
+	//$(".bt_edit").click(function(){
+	//
+	//	$text = $(this).text();
+	//	if($text == 'Edit'){
+	//		$(this).removeClass("btn-primary");
+	//		$(this).addClass("btn-success");
+	//		$(this).text("Save");
+	//	}else{
+	//		$(this).removeClass("btn-success");
+	//		$(this).addClass("btn-primary");
+	//		$(this).text("Edit");
+	//	}
+//
+	//});
+	
+
+	
+	</script>
+	
+	<!-- 
+	Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	
+	<!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	-->
+  </body>
+</html>

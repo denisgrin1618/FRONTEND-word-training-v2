@@ -1,0 +1,113 @@
+﻿
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+	    <!-- Bootstrap core CSS 
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+	
+	-->
+	<link href="bootstrap.min.css" rel="stylesheet">	
+	<link href="bootstrap-table.css" rel="stylesheet">
+	<script src="jquery-3.3.1.js"></script>
+	<script src="bootstrap-table.js"></script>
+	
+    <title>TABLE</title>
+  </head>
+  <!-- <body  style="    background: #eef2f4 url(./images/pattern-light-grey-v3.svg?v6) 0 0 repeat;" > -->
+  
+  <body  >
+  
+   
+   <main role="main" class="container" >
+
+   
+	   <br/>
+
+	   <div class="row justify-content-md-center">
+	   
+		   <div class="alert alert-success" id="eventsResult">
+				Here is the result of event.
+			</div>
+			<table style="heigth:500px;"
+					id="eventsTable"
+				   data-toggle="table"
+				   data-height="300"
+				   data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1"
+				   data-pagination="true"
+				   data-search="true"
+				   data-show-refresh="true"
+				   data-show-toggle="true"
+				   data-show-columns="true"
+				   data-toolbar="#toolbar">
+				<thead>
+				<tr>
+					<th data-field="state" data-checkbox="true"></th>
+					<th data-field="name">Name</th>
+
+					<th data-field="description">Description</th>
+				</tr>
+				</thead>
+			</table>
+		</div>
+	</main>
+    
+	<script type="text/javascript">
+	$(function () {
+		var $result = $('#eventsResult');
+
+		$('#eventsTable').on('all.bs.table', function (e, name, args) {
+			console.log('Event:', name, ', data:', args);
+		})
+		.on('click-row.bs.table', function (e, row, $element) {
+			$result.text('Event: click-row.bs.table');
+		})
+		.on('dbl-click-row.bs.table', function (e, row, $element) {
+			$result.text('Event: dbl-click-row.bs.table');
+		})
+		.on('sort.bs.table', function (e, name, order) {
+			$result.text('Event: sort.bs.table');
+		})
+		.on('check.bs.table', function (e, row) {
+			$result.text('Event: check.bs.table');
+		})
+		.on('uncheck.bs.table', function (e, row) {
+			$result.text('Event: uncheck.bs.table');
+		})
+		.on('check-all.bs.table', function (e) {
+			$result.text('Event: check-all.bs.table');
+		})
+		.on('uncheck-all.bs.table', function (e) {
+			$result.text('Event: uncheck-all.bs.table');
+		})
+		.on('load-success.bs.table', function (e, data) {
+			$result.text('Event: load-success.bs.table');
+		})
+		.on('load-error.bs.table', function (e, status) {
+			$result.text('Event: load-error.bs.table');
+		})
+		.on('column-switch.bs.table', function (e, field, checked) {
+			$result.text('Event: column-switch.bs.table');
+		})
+		.on('page-change.bs.table', function (e, number, size) {
+			$result.text('Event: page-change.bs.table');
+		})
+		.on('search.bs.table', function (e, text) {
+			$result.text('Event: search.bs.table');
+		});
+	});
+	</script>
+	
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS   
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+-->
+  </body>
+</html>

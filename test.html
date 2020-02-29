@@ -1,0 +1,204 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+	    <!-- Bootstrap core CSS -->
+   <link href="./css/bootstrap.min.css" rel="stylesheet">
+	
+	 <style media="all">
+        table {
+			table-layout: fixed;
+			width: 100%;
+		}
+
+		table tr td {
+			word-break: break-all;
+		}
+      </style>
+	
+	
+	
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.textareaAutoResize.js"></script>
+
+    <title>Test</title>
+  </head>
+  <body  style="    background: #eef2f4 url(./images/pattern-light-grey-v3.svg?v6) 0 0 repeat;" >
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light " style="border-bottom: 1px solid black; background-color: #D3D3D3;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="./index.html"><img src="./images/logo_sm.png" ></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Словарь</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="./data_statistic.html">Статистика</a>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Редактор
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="./data_import.html">Загрузка слов</a>
+          <a class="dropdown-item" href="./data_edit.html">Редактирование слов</a>
+          <a class="dropdown-item" href="#">Создание тестов</a>
+        </div>
+      </li>
+    </ul>
+
+	
+	
+	
+  </div>
+  
+  <a class="nav-link" href="./autorization.html">Sign up</a>
+</nav>
+   
+   <main role="main" class="container" >
+
+   <br/>
+
+   <div class="row justify-content-md-center">
+   
+		<div class="input-group mb-3">
+		  <div class="input-group-prepend" id="WordBox" >
+			<p class="input-group-text" id="pWordBox" style="word-wrap: break-all; white-space: normal;"></p>
+		  </div>
+		  <textarea class="form-control" aria-label="With textarea" id="TranslateBox" placeholder="Введите перевод">  </textarea>
+		</div>
+
+	</div>
+		
+		
+	
+	<div class="row justify-content-md-center">
+	   <div class="col-md-1 center-block">
+		  <button id="singlebutton" name="singlebutton" class="btn btn-primary center-block">
+			  Next
+		   </button>
+	   </div>  
+	</div>
+
+	
+
+</main>
+    
+
+	<script type="text/javascript">
+	
+	function ResizeElements(){
+		var width  = $('.input-group-text').parent().parent().width();
+		var height = $('.input-group-text').parent().parent().height();
+		$('.input-group-text').css('width', width/2);
+		$('.input-group-text').css('height', height < 100 ? 100 : height );
+	}
+		
+	$(window).resize(function(){
+		ResizeElements();
+	});
+
+	$('#TranslateBox').resize(function(){  
+		$('#WordBox').css('height', $('#TranslateBox').height());
+	});
+
+ 
+	ResizeElements();
+	
+	var Words = [];
+	var curent_id = 0;
+	var finish = false;
+	
+	function next_word(){
+		if(Words.length > curent_id){
+			//запомним перевод
+			Words[curent_id].translate = $('#TranslateBox').val();
+		
+			//перейдем на следующее слово
+			if(curent_id + 1 < Words.length ){
+				curent_id++;			
+			} else {
+				finish = true;
+			}
+			
+			$('#pWordBox').text(Words[curent_id].word);
+			$('#TranslateBox').val("").attr("placeholder", "Введите перевод");
+				
+			if( curent_id + 1 == Words.length){
+				$('#singlebutton').removeClass('btn-primary').addClass('btn-success').text('Finish');
+				
+			}
+		}
+			
+	}
+		
+	
+
+
+	///////////////////////////////////////////////////////////////////////////
+
+		$(function()
+		{
+			
+			// при изменении размера textarea при наборе текста, будем менять размер зависимых елементов
+			$('#TranslateBox').autoResize({elCopyResize: $("#pWordBox")});
+			
+			// при ручном растягивании textarea, будем менять размер зависимых елементов
+			$("#TranslateBox").ResizeSecondaryElement($("#pWordBox"));
+	
+			$(window).resize(function(){
+				$('#TranslateBox').autoResize({elCopyResize: $("#pWordBox")});
+				$("#TranslateBox").ResizeSecondaryElement($("#pWordBox"));
+			});
+			
+			
+			$.getJSON("Words.json", function(data) {
+				Words = data;
+				//console.log(data);
+				$('#pWordBox').text(Words[curent_id].word);
+				$('#TranslateBox').val("").attr("placeholder", "Введите перевод");
+			});
+			
+			
+			
+			$('#singlebutton').on( "click", function() {
+				next_word();
+				$('#TranslateBox').autoResize({elCopyResize: $("#pWordBox")});
+				
+				if(finish){
+					console.log(Words);
+				}	
+				
+			});
+			
+		});
+	
+
+	//////////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
+	
+	
+	</script>
+	
+
+  
+  </body>
+</html>
