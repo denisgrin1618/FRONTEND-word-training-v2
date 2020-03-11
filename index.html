@@ -74,8 +74,33 @@
 
    <br/>
 
+    
+   <div class="row">
+    <div class="form-group float-left" id="boxLanguageWord1">
+            <select class="form-control" id="languageWord1">
+              <option>ru</option>
+              <option>en</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+    </div>
+       
+    <div class="form-group float-right" id="boxLanguageWord2">
+            <select class="form-control" id="languageWord2">
+              <option>ru</option>
+              <option>en</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+    </div>
+   </div>
+   
    <div class="row justify-content-md-center">
    
+       
+       
 		<div class="input-group mb-3">
 		  <div class="input-group-prepend" id="WordBox" >
 			<p class="input-group-text" id="pWordBox" style="word-wrap: break-all; white-space: normal;">Word english 1 Word english 2 Word english 3 Word english 4 Word english 5 Word english 6 Word english 7 Word english 8 Word english 9 Word english 10 Word english 11 Word english 12 Word english 13 Word english 14 Word english 15 Word english 16 Word english 17</p>
@@ -101,20 +126,28 @@
     
 
 	<script type="text/javascript">
-	
+
+        
 	function ResizeElements(){
 		var width  = $('.input-group-text').parent().parent().width();
 		var height = $('.input-group-text').parent().parent().height();
 		$('.input-group-text').css('width', width/2);
 		$('.input-group-text').css('height', height < 100 ? 100 : height );
+                
+                var position = $('#TranslateBox').position();
+		$('#boxLanguageWord2').css('left', position.left);
+                console.log($('#pWordBox').position().left + "  -  " + $('#boxLanguageWord1').position().left);
+                
 	}
 		
 	$(window).resize(function(){
 		ResizeElements();
 	});
 
-	$('#TranslateBox').resize(function(){  
-		$('#WordBox').css('height', $('#TranslateBox').height());
+	$('#TranslateBox').resize(function(){ 
+                $('#WordBox').css('height', $('#TranslateBox').height());
+                
+                
 	});
 
  
